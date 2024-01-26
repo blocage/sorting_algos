@@ -1,0 +1,12 @@
+:root {
+    --sort-btn-background-color: #f5f5f5;
+    --bar-background-color: #212529;
+    --source-code-color: #000000;
+    --sort-btn-color: #212529;
+    --shadow-color: #212529;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: black;
+}

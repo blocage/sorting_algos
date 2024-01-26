@@ -1,0 +1,53 @@
+
+name : Deploy the visualization page to GitHub Pages
+
+
+#   Only rebuild the page if something 
+#   changes in the /Source/ folder.
+
+on:
+    workflow_dispatch: # Allow manual starting
+    push:
+        branches:
+            -   'main'
+
+        paths:
+            -   'Source/**'
+
+
+permissions:
+    id-token : write
+    contents : read
+    pages : write
+
+
+concurrency:
+    cancel-in-progress : true
+    group : 'pages'
+
+
+jobs:
+    deploy:
+        
+        environment:
+            name : github-pages
+            url : ${{ steps.deployment.outputs.page_url }}
+        
+        runs-on : ubuntu-latest
+        
+        steps:
+            
+            -   name : Checkout
+                uses : actions/checkout@v3
+            
+            -   name : Setup Pages
+                uses : actions/configure-pages@v2
+            
+            -   name : Upload artifact
+                uses : actions/upload-pages-artifact@v1
+                with :
+                    path : 'Source/'
+            
+            -   name : Deploy to GitHub Pages
+                uses : actions/deploy-pages@v1
+                id : deployment
