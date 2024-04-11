@@ -44,7 +44,7 @@
 
 <!----------------------------------------------------------------------------->
 
-[Website]: https://Insuetus.github.io/sorting_algos
+[Website]: https://blocage.github.io/sorting_algos
 
 [Insertion Sort]: https://en.wikipedia.org/wiki/Insertion_sort
 [Selection Sort]: https://en.wikipedia.org/wiki/Selection_sort
